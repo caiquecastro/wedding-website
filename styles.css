@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url("assets/images/bouquet.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Dancing Script', sans-serif;
+}
+
+.grooms {
+    font-size: 7em;
+    text-align: center;
+    background-color: rgba(200, 200, 200, .7);
+    width: 100%;
+    padding: .3em 0;
+}
+
+.declaration {
+    font-size: 2em;
+    padding: 1em 4em;
+    background-color: rgba(200, 200, 200, .7);
+    text-align: center;
+}
