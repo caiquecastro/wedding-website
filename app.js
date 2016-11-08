@@ -7,7 +7,7 @@ buildClock();
 window.setInterval(buildClock, 1000);
 
 function buildClock() {
-    let remainingTime = getTimeRemaining('2017-03-11 12:33');
+    let remainingTime = getTimeRemaining('2017-03-11 12:00');
 
     remainingDays.innerHTML = addLeadingZeroes(remainingTime.days);
     remainingHours.innerHTML = addLeadingZeroes(remainingTime.hours);
