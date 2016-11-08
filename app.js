@@ -3,14 +3,17 @@ let remainingHours = document.querySelector("#remaining-hours");
 let remainingMinutes = document.querySelector("#remaining-minutes");
 let remainingSeconds = document.querySelector("#remaining-seconds");
 
-window.setInterval(function() {
-	let remainingTime = getTimeRemaining('2017-03-11 12:00');
+buildClock();
+window.setInterval(buildClock, 1000);
 
-	remainingDays.innerHTML = remainingTime.days;
-	remainingHours.innerHTML = remainingTime.hours;
-	remainingMinutes.innerHTML = remainingTime.minutes;
-	remainingSeconds.innerHTML = remainingTime.seconds;
-}, 1000);
+function buildClock() {
+    let remainingTime = getTimeRemaining('2017-03-11 12:33');
+
+    remainingDays.innerHTML = addLeadingZeroes(remainingTime.days);
+    remainingHours.innerHTML = addLeadingZeroes(remainingTime.hours);
+    remainingMinutes.innerHTML = addLeadingZeroes(remainingTime.minutes);
+    remainingSeconds.innerHTML = addLeadingZeroes(remainingTime.seconds);
+}
 
 function getTimeRemaining(endtime){
   var t = Date.parse(endtime) - Date.parse(new Date());
@@ -25,4 +28,8 @@ function getTimeRemaining(endtime){
     'minutes': minutes,
     'seconds': seconds
   };
+}
+
+function addLeadingZeroes(number) {
+    return (number < 10) ? "0" + number : number;
 }
