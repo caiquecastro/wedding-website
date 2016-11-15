@@ -12,10 +12,10 @@ window.setInterval(buildClock, 1000);
 function buildClock() {
     let remainingTime = getTimeRemaining('2017-03-11 12:00');
 
-    remainingDays.innerHTML = addLeadingZeroes(remainingTime.days);
-    remainingHours.innerHTML = addLeadingZeroes(remainingTime.hours);
-    remainingMinutes.innerHTML = addLeadingZeroes(remainingTime.minutes);
-    remainingSeconds.innerHTML = addLeadingZeroes(remainingTime.seconds);
+    remainingDays.innerHTML = formatNumberAndWord(remainingTime.days, 'dia');
+    remainingHours.innerHTML = formatNumberAndWord(remainingTime.hours, 'hora');
+    remainingMinutes.innerHTML = formatNumberAndWord(remainingTime.minutes, 'minuto');
+    remainingSeconds.innerHTML = formatNumberAndWord(remainingTime.seconds, 'segundo');
 
     let hoursCount = remainingTime.days * 24 + remainingTime.hours;
     let minutesCount = hoursCount * 60 + remainingTime.minutes;
@@ -24,6 +24,15 @@ function buildClock() {
     hoursCountdown.innerHTML = thousandsSeparator(hoursCount);
     minutesCountdown.innerHTML = thousandsSeparator(minutesCount);
     secondsCountdown.innerHTML = thousandsSeparator(secondsCount);
+}
+
+function formatNumberAndWord(number, word) {
+    let response = number + ' ' + word;
+    if (number === 1) {
+      return response;
+    }
+
+    return response + 's';
 }
 
 function getTimeRemaining(endtime){
