@@ -2,6 +2,9 @@ let remainingDays  = document.querySelector("#remaining-days");
 let remainingHours = document.querySelector("#remaining-hours");
 let remainingMinutes = document.querySelector("#remaining-minutes");
 let remainingSeconds = document.querySelector("#remaining-seconds");
+let hoursCountdown = document.querySelector('#hours-countdown');
+let minutesCountdown = document.querySelector('#minutes-countdown');
+let secondsCountdown = document.querySelector('#seconds-countdown');
 
 buildClock();
 window.setInterval(buildClock, 1000);
@@ -13,6 +16,14 @@ function buildClock() {
     remainingHours.innerHTML = addLeadingZeroes(remainingTime.hours);
     remainingMinutes.innerHTML = addLeadingZeroes(remainingTime.minutes);
     remainingSeconds.innerHTML = addLeadingZeroes(remainingTime.seconds);
+
+    let hoursCount = remainingTime.days * 24 + remainingTime.hours;
+    let minutesCount = hoursCount * 60 + remainingTime.minutes;
+    let secondsCount = minutesCount * 60 + remainingTime.seconds;
+
+    hoursCountdown.innerHTML = thousandsSeparator(hoursCount);
+    minutesCountdown.innerHTML = thousandsSeparator(minutesCount);
+    secondsCountdown.innerHTML = thousandsSeparator(secondsCount);
 }
 
 function getTimeRemaining(endtime){
@@ -32,4 +43,8 @@ function getTimeRemaining(endtime){
 
 function addLeadingZeroes(number) {
     return (number < 10) ? "0" + number : number;
+}
+
+function thousandsSeparator(number) {
+  return number.toLocaleString();
 }
