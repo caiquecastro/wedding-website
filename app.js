@@ -1,16 +1,16 @@
-let remainingDays  = document.querySelector("#remaining-days");
-let remainingHours = document.querySelector("#remaining-hours");
-let remainingMinutes = document.querySelector("#remaining-minutes");
-let remainingSeconds = document.querySelector("#remaining-seconds");
-let hoursCountdown = document.querySelector('#hours-countdown');
-let minutesCountdown = document.querySelector('#minutes-countdown');
-let secondsCountdown = document.querySelector('#seconds-countdown');
+const remainingDays  = document.querySelector("#remaining-days");
+const remainingHours = document.querySelector("#remaining-hours");
+const remainingMinutes = document.querySelector("#remaining-minutes");
+const remainingSeconds = document.querySelector("#remaining-seconds");
+const hoursCountdown = document.querySelector('#hours-countdown');
+const minutesCountdown = document.querySelector('#minutes-countdown');
+const secondsCountdown = document.querySelector('#seconds-countdown');
 
 buildClock();
 window.setInterval(buildClock, 1000);
 
 function buildClock() {
-    let remainingTime = getTimeRemaining('2017-03-11 12:00');
+    const remainingTime = getTimeRemaining('2017-03-04 09:30');
 
     remainingDays.innerHTML = formatNumberAndWord(remainingTime.days, 'dia');
     remainingHours.innerHTML = formatNumberAndWord(remainingTime.hours, 'hora');
